@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/detail.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Product</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop</span>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a href="/products" class="nav-item nav-link">Product</a>
+            </li>
+            <li class="nav-item">
+                    <a href="/categories" class="nav-item nav-link">Category</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Customers" class="nav-item nav-link">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-item nav-link">Orders</a>
+            </li>
+        </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+            </form>
+        </div>
+    </nav>
+    <div id="container">
+       <div id="updateproduct">
+            @model ProductViewModel
+            <form asp-action="UpdateProduct" asp-controller="Home" method="POST">
+                <input type="hidden" name="productid" value=@ViewBag.ProCat.id>
+                <span asp-validation-for="Name" style="color:red"></span> 
+                <label asp-for="Name">Name:</label>
+                <input type="text" asp-for="Name" value=@ViewBag.ProCat.name>
+                <span asp-validation-for="img" style="color:red"></span> 
+                <label asp-for="img">Image name:</label>
+                <input type="file" asp-for="img" value=@ViewBag.ProCat.img_name>
+                <span asp-validation-for="inventory" style="color:red"></span> 
+                <label asp-for="inventory">Inventory:</label>
+                <input type="text" asp-for="inventory" value=@ViewBag.ProCat.inventory>
+                <span asp-validation-for="description" style="color:red"></span> 
+                <label asp-for="description">Description:</label>
+                <textarea asp-for="description">@ViewBag.ProCat.description</textarea>
+                <span asp-validation-for="price" style="color:red"></span> 
+                <label asp-for="price">Price: </label>
+                <input type="text" asp-for="price" value=@ViewBag.ProCat.price>
+                <button type="submit">Update</button>
+            </form>
+        </div>   
+
+       <div id="middle"> 
+           <div id="left">
+                <img src=@ViewBag.ProCat.img_name alt="">
+                <h3>Inventory: @ViewBag.ProCat.inventory left</h3>
+            </div>
+        
+        <div id="right">
+                <h2>Name: @ViewBag.ProCat.name</h2>
+                <p>Description: <b>@ViewBag.ProCat.description</b></p>
+                <h4>Category:</h4>
+                    <ul>
+                        @foreach(var category in @ViewBag.ProCat.productcategory){
+                        <li>@category.category.name</li>
+                        }
+                    </ul>
+                <form action="/AddCategory" method="POST">
+                <input type="hidden" name="productid" value=@ViewBag.ProCat.id>
+                        <select name="categoryid" >
+                            @foreach(var category in @ViewBag.allCategories){
+                                bool Inlist = false;
+                                 foreach(var match in @category.CatPro){
+
+                                    if(match.product.id == @ViewBag.ProCat.id){
+                                        Inlist = true;
+                                    }
+                                 }
+                                @if(Inlist == false){
+                                    <option value= "@category.id">@category.name</option>
+                                 }
+                            }
+                        </select>
+                        <button type="submit">Add</button>
+                </form>
+            </div>    
+        </div> 
+    </div>
+    
+</body>
+</html>

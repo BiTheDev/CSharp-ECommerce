@@ -1,0 +1,10 @@
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.deps.json
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.runtimeconfig.json
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.runtimeconfig.dev.json
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.dll
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.pdb
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.csproj.CoreCompileInputs.cache
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.AssemblyInfoInputs.cache
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.AssemblyInfo.cs
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.dll
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.pdb

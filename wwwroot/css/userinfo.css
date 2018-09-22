@@ -1,0 +1,25 @@
+#container{
+    width:70%;
+    margin: 0 auto;
+    margin-top: 5% !important;
+}
+
+#table{
+    display: inline-block !important;
+    width:70%;
+    vertical-align: top;
+}
+
+#info img{
+    margin-bottom:70%;
+}
+
+#info p {
+    margin-top:15% !important;
+}
+.sidebar{
+    width:25%;
+    text-align: center;
+    display: inline-block !important;
+    height:450px;
+}

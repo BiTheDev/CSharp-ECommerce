@@ -1,0 +1,28 @@
+#cat{
+    height:500px;
+}
+p{
+    display: inline;
+    margin:0 0.5% !important;
+}
+
+#container{
+    margin: 0 auto !important;
+    width:85%;
+}
+
+#cat{
+    margin: 0 auto !important;
+    width:90%;
+    border:1px ridge gray;
+    box-shadow: 1px 2px black;
+    background-color:whitesmoke;
+}
+
+body{
+    background-color: rgb(226, 245, 234) !important;
+}
+
+span{
+    display: block !important;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/category.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Category</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop</span>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a href="/products" class="nav-item nav-link">Product</a>
+            </li>
+            <li class="nav-item active">
+                    <a href="/categories" class="nav-item nav-link">Category</a>
+            </li>
+            <li class="nav-item ">
+                <a href="/Customers" class="nav-item nav-link">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-item nav-link">Orders</a>
+            </li>
+        </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+            </form>
+        </div>
+    </nav>
+    <div id="container">
+        <h1>All Categories</h1>
+        <div id="createcategory">
+             @model CategoryViewModel
+            <h4>New Category</h4>
+            <form asp-action="CreateCategory" asp-controller="Home" method="POST">
+                <span asp-validation-for="Name" style="color:red"></span> 
+                <label asp-for="Name">Name</label>
+                <input type="text" asp-for="Name">
+                <button type="submit">Create</button>
+            </form>
+        </div>
+        <div id="cat">
+            @foreach(var category in @ViewBag.allCategories){
+                <p>@category.name</p>
+            } 
+        </div>
+    </div>
+</body>
+</html>

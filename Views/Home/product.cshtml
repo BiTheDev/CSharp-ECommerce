@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/product.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Product List</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop</span>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a href="/products" class="nav-item nav-link">Product</a>
+            </li>
+            <li class="nav-item">
+                    <a href="/categories" class="nav-item nav-link">Category</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Customers" class="nav-item nav-link">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-item nav-link">Orders</a>
+            </li>
+        </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/dashboard" class="btn btn-outline-success my-2 my-sm-0">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+            </form>
+        </div>
+    </nav>
+    <div id="container">
+        <h1>All Products</h1>
+        <div id="createproduct">
+            @model ProductViewModel
+            <h4>New Product</h4>
+            <form asp-action="CreateProduct" asp-controller="Home" method="POST">
+                <span asp-validation-for="Name" style="color:red"></span> 
+                <label asp-for="Name">Name:</label>
+                <input type="text" asp-for="Name">
+                <span asp-validation-for="img" style="color:red"></span> 
+                <label asp-for="img">Image name:</label>
+                <input type="file" asp-for="img">
+                <span asp-validation-for="inventory" style="color:red"></span> 
+                <label asp-for="inventory">Inventory:</label>
+                <input type="number" asp-for="inventory">
+                <span asp-validation-for="description" style="color:red"></span> 
+                <label asp-for="description">Description:</label>
+                <textarea asp-for="description"></textarea>
+                <span asp-validation-for="price" style="color:red"></span> 
+                <label asp-for="price">Price: </label>
+                <input type="text" asp-for="price">
+                <button type="submit">Create</button>
+            </form>
+        </div>   
+        <div id="products">
+        @foreach(var product in @ViewBag.allProducts){
+            <div class="card">
+                <img class="card-img-top" src=@product.img_name alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@product.name</h5>
+                    <p class="card-text">$ @product.price</p>
+                    <p class="card-text">Inventory: @product.inventory</p>
+                    <a href="/products/@product.id">Edit Product</a>
+                </div>
+            </div>
+        }
+        </div>       
+    </div>
+</body>
+</html>

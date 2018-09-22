@@ -1,0 +1,22 @@
+<div id="address">
+@model addressViewModel
+    <form asp-action="CreateAddress" method="POST">
+        <span asp-validation-for="address" style="color:red"></span> 
+        <label asp-for="address">Address:</label>
+        <input type="text" asp-for="address">
+        <span asp-validation-for="apt" style="color:red"></span> 
+        <label asp-for="apt">Apt#:</label>
+        <input type="text" asp-for="apt">
+        <span asp-validation-for="zipcode" style="color:red"></span> 
+        <label asp-for="zipcode">Zipcode:</label>
+        <input type="number" asp-for="zipcode">
+        <span asp-validation-for="city" style="color:red"></span> 
+        <label asp-for="city">City:</label>
+        <input type="text" asp-for="city">
+        <span asp-validation-for="state" style="color:red"></span> 
+        <label asp-for="state">State:</label>
+        <input type="text" asp-for="state">
+        <button type="submit">Create new Address</button>
+    </form>
+</div>
+

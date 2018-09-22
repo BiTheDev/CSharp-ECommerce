@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/admindashboard.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Dojo shop Dashboard</title>
+</head>
+<body>
+     <nav class="navbar navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop Admin</span>
+        <form  class="form-inline">
+            <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+        </form>
+    </nav>
+    <div id="container">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Product</h5>
+                <p class="card-text">Add a new product for your shop</p>
+                <a href="/products">Product</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Category</h5>
+                <p class="card-text">Add a new category for your shop</p>
+                <a href="/categories">Category</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Order List</h5>
+                <p class="card-text">Show all the order from all customers</p>
+                <a href="/orders">Orders</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Customer</h5>
+                <p class="card-text">Show all your customer</p>
+                <a href="/Customers">Customers</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

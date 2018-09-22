@@ -1,0 +1,40 @@
+
+
+#left{
+    display: inline-block !important;
+    width:40%;
+}
+#right{
+    width:45%;
+    vertical-align: top;
+    display: inline-block !important;
+}
+
+#top{
+    display: block;
+}
+
+#bottom{
+    display: block;
+}
+#wall{
+    overflow: scroll !important;
+    display: block;
+    height:250px;
+    border:1px groove black;
+    box-shadow: 1px 2px gray;
+    width:90%;
+    margin-left:5%;
+}
+.comment{
+    border:1px solid black;
+    width:18%;
+    display: inline-block !important;
+    vertical-align: top;
+}
+
+textarea{
+    width:20%;
+    height:50px;
+    resize: none !important;
+}

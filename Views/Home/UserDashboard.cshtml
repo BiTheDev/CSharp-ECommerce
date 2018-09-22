@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/userdashboard.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Dojo shop Dashboard</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop</span>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a href="/userinfo" class="nav-item nav-link">Profile</a>
+            </li>
+            <li class="nav-item">
+                    <a href="/updateinfo" class="nav-item nav-link">Update info</a>
+            </li>
+        </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+            </form>
+        </div>
+    </nav>
+    <div id="container">
+        <h1>Welcome! @ViewBag.UserInfo.first_name</h1>
+        <div id="products">
+            <p>All Products</p>
+            @foreach(var product in @ViewBag.allProducts){
+            <div class="card">
+                <img class="card-img-top" src=@product.img_name alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@product.name</h5>
+                    <p class="card-text">$ @product.price</p>
+                    <form action="/purchase" method="POST">
+                        <input type="hidden" name="productid" value=@product.id>
+                        @if(@product.inventory>0){
+                            <select name="amount">
+                            @for(var i = 1; i<=@product.inventory;i++){
+                                <option value = "@i" > @i </option>
+                            }
+                            </select>
+                            <button type="submit" class="btn btn-success">Purchase</button>
+                        }
+                        else{
+                            <p style="color:red">Out of stock</p>
+                        } 
+                    </form>
+                    <a href="/productinfo/@product.id">Product Info</a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

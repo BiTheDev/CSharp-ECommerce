@@ -1,0 +1,33 @@
+.card{
+    border:1px groove gray !important;
+    display: inline-block !important;
+    box-shadow: 1px 1px black !important;
+    width:19%;
+    vertical-align: top;
+}
+a{
+    display: block !important;
+}
+
+
+.card-img-top{
+    height:150px;
+}
+
+#createproduct{
+    display: inline-block;
+    width:15% !important;
+}
+span,label,input,textarea{
+    display: block;
+    resize: none !important;
+}
+
+#products{
+    vertical-align: top;
+    display: inline-block;
+    width:80%;
+}
+h1{
+    text-align: center;
+}

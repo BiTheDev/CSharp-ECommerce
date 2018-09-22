@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/productinfo.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>ProductInfo</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <span class="navbar-brand" style="color:orangered">Dojo Shop</span>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a href="/userinfo" class="nav-item nav-link">Profile</a>
+            </li>
+            <li class="nav-item ">
+                    <a href="/userorder" class="nav-item nav-link">Your Orders</a>
+            </li>
+        </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/UserDashboard" class="btn btn-outline-success my-2 my-sm-0">Dashboard</a>
+                <a href="/logout" class="btn btn-outline-success my-2 my-sm-0">logout</a> 
+            </form>
+        </div>
+    </nav>
+    <div id="container">
+        <div id="top">
+            <div id="left">
+            <h1>@ViewBag.product.name</h1>
+            <h4>@ViewBag.product.description</h4>
+            <p>Price : $@ViewBag.product.price</p>
+            <form action="/purchase" method="POST">
+                <input type="hidden" name="productid" value=@ViewBag.product.id>
+                @if(@ViewBag.product.inventory>0){
+                    <select name="amount">
+                    @for(var i = 1; i<=@ViewBag.product.inventory;i++){
+                        <option value = "@i" > @i </option>
+                    }
+                    </select>
+                    <button type="submit">Purchase</button>
+                } 
+            </form>
+            </div>
+            <img src=@ViewBag.product.img_name id="right" >
+        </div>
+        <div id="bottom">
+            <h2>Customer Review:</h2>
+            @model commentViewModel 
+            @{
+                bool InList = false;
+                foreach(var match in @ViewBag.product.productCmt){
+                    if(@match.usersid == @ViewBag.user.id){
+                        InList = true;
+                    }
+                } 
+                @if(InList == false){
+                    <form asp-action="CreateCmt" method="POST" asp-controller="Home">
+                    <input type="hidden" name="productid" value="@ViewBag.product.id">
+                    <span asp-validation-for="comment" style="color:red"></span>
+                    <p>Comment:</p>         
+                    <textarea asp-for="comment"></textarea>
+                    <span asp-validation-for="rating" style="color:red"></span> 
+                        <p>Rating: </p>
+                        <select name="rating">
+                            @for(int i = 0; i<=5; i++){
+                                <option value="@i">@i</option>
+                            }
+                            </select>
+                    <button type="submit">Create Comment</button>
+                    </form>       
+                } 
+                 
+            }           
+                   
+                
+                <div id="wall">
+                @foreach(var cmt in @ViewBag.product.productCmt){
+                    <div class="comment">
+                        <p>Rating: @cmt.rating</p>
+                        <p>Reviewer: @cmt.user.first_name</p>
+                        <p>Comment: @cmt.comment</p>
+                        <p>Date:@cmt.created_at.ToString("MMM dd yyyy")</p>
+                        @if(@cmt.usersid == @ViewBag.user.id){
+                            <form action="/removecmt" method="POST">
+                            <input type="hidden" name="cmtid" value="@cmt.id">
+                            <input type="hidden" name="productid" value="@ViewBag.product.id">
+                            <button type="submit">remove</button>
+                            </form>
+                        }
+                    </div>
+                }        
+                </div>     
+        </div> 
+           
+     </div>
+</body>
+</html>

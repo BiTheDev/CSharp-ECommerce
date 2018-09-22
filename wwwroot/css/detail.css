@@ -1,0 +1,38 @@
+
+
+
+p{
+    display: block;
+    margin:30px 0 !important;
+}
+
+#updateproduct{
+    vertical-align: top;
+    display: inline-block;
+    width:15% !important;
+}
+span,label,input,textarea{
+    display: block;
+    resize: none !important;
+}
+
+#middle{
+    width:84% !important;
+    display: inline-block;
+
+}
+
+img{
+    width:100%;
+}
+#left{
+    display: inline-block !important;
+    width:40%;
+}
+#right{
+    width:30%;
+    vertical-align: top;
+    display: inline-block !important;
+    margin-left:10% !important;
+
+}
