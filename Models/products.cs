@@ -16,7 +16,7 @@ namespace ECommerce.Models
         public int usersid{get;set;}
         public string name{get;set;}
         public string description{get;set;}
-        public byte[] img_name{get;set;}
+        public string img_name{get;set;}
         public int inventory{get;set;}
         public double price{get;set;}
         public DateTime created_at{get;set;}

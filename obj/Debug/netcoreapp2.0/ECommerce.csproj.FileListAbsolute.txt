@@ -8,3 +8,4 @@
 /Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.AssemblyInfo.cs
 /Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.dll
 /Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.pdb
+/Users/Curry30/Desktop/coding_dojo/C#.Net/day14/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.csprojAssemblyReference.cache

@@ -1,34 +1,61 @@
 body{
-    background-color:rgb(195, 247, 249) !important;
+    /* background-color:rgb(195, 247, 249) !important; */
+    font-family: 'Work Sans', sans-serif !important;
+    background: url('/images/indexbg.jpg') no-repeat !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
 }
-#container {
-    margin-top:2%;
-    width:80%;
-    margin-left:10%;
-    padding-top:20px;
-    border: ridge 2px navy !important;
-    font-family: 'Bree Serif', serif;
-    font-size: 20px;
-}
-
 h1{
     color:rgb(10, 250, 50) !important;
     font-size:35px;
     text-shadow: 1px 2px black;
+    text-align: center;
 }
 
 
-
-#register{
-    display:inline-block !important;
-    width:40% !important;
-}
-
-#login{
+#login,#register{
+    opacity: 1 !important;
+    background-color: white;
     vertical-align: top;
     display:inline-block !important;
-    width:40% !important;
-    margin-left:15% !important;
+    width:30% !important;
+    margin-left:35% !important;
+    margin-top: 35px !important;
+    border: navy 1px solid;
+    padding:2%;
+    border-radius: 10%;
+    box-shadow: 2px 2px gray;
+    text-align: center;
+    opacity: .9 !important;
+}
+
+#login button,#register button{
+    margin-top:6% !important;
+    width: 90% !important;
+    margin-left:0 !important;
+}
+
+@media only screen and (max-width: 900px){
+    #login,#register{
+        width:40% !important;
+        margin-left: 30% !important;
+    }
+    #login button,#register button{
+        margin-top:8% !important;
+        width: 90% !important;
+    }
+}
+
+@media only screen and (max-width : 600px){
+    #login,#register{
+        width:100% !important;
+        margin-left: 0 !important;
+    }
+    #login button,#register button{
+        margin-top:8% !important;
+        width: 90% !important;
+    }
 }
 
 input{

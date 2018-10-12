@@ -1,3 +1,4 @@
+
 .card{
     border:1px groove gray !important;
     display: inline-block !important;
@@ -16,7 +17,8 @@ a{
 
 #createproduct{
     display: inline-block;
-    width:15% !important;
+    width:20% !important;
+    border:2px solid blue !important;
 }
 span,label,input,textarea{
     display: block;
@@ -24,9 +26,11 @@ span,label,input,textarea{
 }
 
 #products{
+    border:2px solid red !important;
     vertical-align: top;
     display: inline-block;
-    width:80%;
+    margin-left:2% !important;
+    width:75%;
 }
 h1{
     text-align: center;

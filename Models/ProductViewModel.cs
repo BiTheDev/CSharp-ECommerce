@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-
 namespace ECommerce.Models
 {
     public class ProductViewModel
@@ -15,6 +14,6 @@ namespace ECommerce.Models
         [Required]
         public int inventory{get;set;} 
 
-        public byte[] img{get;set;}
+        public string img{get;set;}
     }
 }

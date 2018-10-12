@@ -1,28 +1,47 @@
-<div id="register">
-    <h1>Register</h1>
-    @model RegisterViewModel
-    <form asp-action="Register" asp-controller="Home" method="POST">
-    <span asp-validation-for="first_name" style="color:red; display:block;"></span> 
-    <label asp-for="first_name">First Name: </label> 
-    <input class="form-control" type="text" asp-for="first_name">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/index.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <title>Shop</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark" >
+    <a class="navbar-brand" href="">Shop</a>
+    </nav>
+    <div id="register" >
+        <h1>Register</h1>
+        @model RegisterViewModel
+        <form asp-action="Register" asp-controller="Home" method="POST">
+        <span asp-validation-for="first_name" style="color:red; display:block;"></span> 
+        <label asp-for="first_name">First Name: </label> 
+        <input class="form-control" type="text" asp-for="first_name" placeholder="First Name">
 
-    <span asp-validation-for="last_name" style="color:red; display:block;"></span> 
-    <label asp-for="last_name">Last Name: </label> 
-    <input class="form-control" type="text" asp-for="last_name">
+        <span asp-validation-for="last_name" style="color:red; display:block;"></span> 
+        <label asp-for="last_name">Last Name: </label> 
+        <input class="form-control" type="text" asp-for="last_name" placeholder="Last Name">
 
-    <span asp-validation-for="register_email" style="color:red; display:block;"></span> 
-    <label asp-for="register_email">Email:</label> 
-    <input class="form-control" type="text" asp-for="register_email">
+        <span asp-validation-for="register_email" style="color:red; display:block;"></span> 
+        <label asp-for="register_email">Email:</label> 
+        <input class="form-control" type="text" asp-for="register_email" placeholder="Email">
 
-    <span asp-validation-for="register_password" style="color:red; display:block;"></span> 
-    <label asp-for="register_password">Password: </label> 
-    <input class="form-control" type="password" asp-for="register_password">
+        <span asp-validation-for="register_password" style="color:red; display:block;"></span> 
+        <label asp-for="register_password">Password: </label> 
+        <input class="form-control" type="password" asp-for="register_password" placeholder="Password">
 
-    <span asp-validation-for="confirm" style="color:red; display:block;"></span> 
-    <label asp-for="confirm">Confirm Password: </label> 
-    <input class="form-control" type="password" asp-for="confirm">
-    <br>
-    <button type="submit" class="btn btn-warning">Submit</button>
-</form>
-</div>
+        <span asp-validation-for="confirm" style="color:red; display:block;"></span> 
+        <label asp-for="confirm">Confirm Password: </label> 
+        <input class="form-control" type="password" asp-for="confirm" placeholder="Confirm Password">
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+    <a href="/">Login</a>
+    </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="~/js/index.js"></script>
+</body>
+</html>
 

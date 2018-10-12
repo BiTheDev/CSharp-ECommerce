@@ -1,5 +1,10 @@
 body{
-    background-color:rgb(97, 224, 176) !important;
+    background-color: #1fc8db !important; 
+    /* For browsers that do not support gradients */        
+    background: linear-gradient(140deg, #88f3ac 15%, #1fc8db 60%) no-repeat!important; 
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
 }
 
 
@@ -22,7 +27,18 @@ body{
     box-shadow: 1px 2px gray;
 }
 
-.card-img-top{
-    width:286px;
-    height:180px;
+
+@media only screen and (max-width: 900px){
+    .card{
+        display:inline-block !important;
+        width:45% !important;
+        margin-left:4% !important;
+    }
+}
+
+@media only screen and (max-width : 600px){
+    .card{
+        width:100% !important;
+        margin-left:0 !important;
+    }
 }

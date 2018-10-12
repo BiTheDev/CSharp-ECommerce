@@ -5,12 +5,13 @@
     <span style="color:red; display:block;">@ViewBag.error</span>
     <span asp-validation-for="login_Email" style="color:red; display:block;"></span> 
     <label asp-for="login_Email">Email:</label> 
-    <input class="form-control" type="text" asp-for="login_Email">
+    <input class="form-control" type="text" asp-for="login_Email" placeholder="Email">
 
     <span asp-validation-for="login_Password" style="color:red; display:block;"></span> 
     <label asp-for="login_Password">Password: </label> 
-    <input class="form-control" type="password" asp-for="login_Password">
+    <input class="form-control" type="password" asp-for="login_Password" placeholder="Password">
 
-    <button type="submit" class="btn btn-warning">Submit</button>
+    <button type="submit" class="btn btn-warning">Login</button>
     </form>
+    <a href="/RegisterPage">New Here? Create an account</a>
 </div>

@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using ECommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+
 
 namespace ECommerce.Controllers
+
 {
+    
     public class HomeController : Controller
     {
+         
          private EcommerceContext _context;
-        
+         private Boolean choice = false;
             public HomeController(EcommerceContext context)
             {
                 _context = context;
@@ -22,6 +26,10 @@ namespace ECommerce.Controllers
             public IActionResult Index()
             {
                 return View("index");
+            }
+            [HttpGet("RegisterPage")]
+            public IActionResult RegisterPage(){
+                return View("register");
             }
             [HttpPost("RegisterProcess")]
             public IActionResult Register(RegisterViewModel user){
@@ -53,7 +61,7 @@ namespace ECommerce.Controllers
                         return RedirectToAction("UserDashboard");
                     }              
                 }else{
-                    return View("index");
+                    return View("register");
                 }
             }
 
@@ -92,8 +100,11 @@ namespace ECommerce.Controllers
 
             [HttpGet("products")]
             public IActionResult Products(){
+                int? id = HttpContext.Session.GetInt32("Id");
                 List <products> TopProducts = _context.products.ToList();
                 ViewBag.allProducts = TopProducts;
+                var user = _context.users.FirstOrDefault(x=>x.id == id);
+                ViewBag.user = user;
                 return View("product");
             }
             [HttpPost("createcmt")]
@@ -146,7 +157,11 @@ namespace ECommerce.Controllers
                     _context.SaveChanges();
                     return RedirectToAction("Products");
                 }
-                return View("createproduct");
+                List <products> TopProducts = _context.products.ToList();
+                var user = _context.users.FirstOrDefault(x=>x.id == id);
+                ViewBag.user = user;
+                ViewBag.allProducts = TopProducts;
+                return View("product");
             }
 
             [HttpGet("products/{id}")]
@@ -357,7 +372,7 @@ namespace ECommerce.Controllers
                 HttpContext.Session.Clear();
                 return RedirectToAction("Index");
             }
-
+            
 
     }
 }
